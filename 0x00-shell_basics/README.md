@@ -1,0 +1,1 @@
+pwd -List the path name of the current directory
