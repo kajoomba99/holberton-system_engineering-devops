@@ -1,2 +1,2 @@
 #!/bin/bash
-echo $0
+paste -s -d'/\n' | cut -d/ -f1
