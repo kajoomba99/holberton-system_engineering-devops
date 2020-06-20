@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # This scrip show a file description
-file_name="holbertonschool"
+file_name=holbertonschool
 if [ -e $file_name ]
 then
 	echo "holbertonschool file exists"
@@ -16,5 +16,5 @@ then
 		echo "holbertonschool is a regular file"
 	fi
 else
-	echo "holbertonschool file does not exists"
+	echo "holbertonschool file does not exist"
 fi
