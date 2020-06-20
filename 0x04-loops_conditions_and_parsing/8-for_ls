@@ -2,5 +2,5 @@
 # This script print the file name in the current directory
 for f in *
 do
-    echo "$f";
+    echo "$f" | cut -d '-' -f 2
 done
