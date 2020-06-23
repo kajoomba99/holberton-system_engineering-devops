@@ -4,8 +4,7 @@ _sterm() {
 	echo "I am invincible!!!"
 }
 trap _sterm SIGTERM
-while true
-do
+while (( 1 == 1 )); do
 	echo "To infinity and beyond"
 	sleep 2
 done
