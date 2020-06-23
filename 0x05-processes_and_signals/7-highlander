@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 # This script create an infinite loop and block the SIGTERM Signal
-_sterm() {
-	echo "I am invincible!!!"
-}
-trap _sterm SIGTERM
-while (( 1 == 1 )); do
+trap "echo I am invincible!!!" SIGTERM
+i=1
+
+while [ $i -lt 2 ]
+do
 	echo "To infinity and beyond"
 	sleep 2
 done
