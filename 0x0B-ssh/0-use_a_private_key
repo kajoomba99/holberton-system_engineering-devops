@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#ses ssh to connect to your server a the private
+ssh -i ~/.ssh/holberton ubuntu@35.243.239.50
