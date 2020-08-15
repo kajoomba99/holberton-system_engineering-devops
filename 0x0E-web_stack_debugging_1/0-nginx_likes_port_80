@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# some commentary
+sed -i 's/8080/80/g' /etc/init.d/nginx
+sudo /etc/init.d/nginx restart
