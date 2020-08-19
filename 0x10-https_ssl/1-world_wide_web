@@ -8,7 +8,6 @@ if [ $# -eq 1 ]; then
 	for value in 'www' 'lb-01' 'web-01' 'web-02';do
 		dig_into_domain "$1" "$value"
 	done
-fi
-if [ $# -eq 2 ]; then
+else
 	dig_into_domain "$1" "$2"
 fi
