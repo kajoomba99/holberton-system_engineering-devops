@@ -2,7 +2,7 @@
 # display information about subdomains.
 dig_into_domain()
 {
-	dig "$2.$1" | grep -A1 'ANSWER SECTION:'| grep "$1" |awk -v sd="$2" 'NF {print "The subdomain " sd " is a " $4 " record and points to " $5}'
+	dig "$2.$1" | grep -A1 'ANSWER SECTION:'| grep "$1" |awk -v sd="$2" '{print "The subdomain " sd " is a " $4 " record and points to " $5}'
 }
 if [ $# -eq 1 ]; then
 	for value in 'www' 'lb-01' 'web-01' 'web-02';do
