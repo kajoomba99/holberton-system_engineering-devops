@@ -1,0 +1,5 @@
+#!/usr/bin/env
+# block all incomming traffic but
+sudo ufw default deny incoming
+sudo ufw allow from any to any port 22,443,80 proto tcp
+sudo ufw enable
