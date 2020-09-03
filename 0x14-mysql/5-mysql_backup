@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 # create a backup
-DD=$(date +%d)
-MM=$(date +%m)
-YY=$(date +%Y)
+date_up=$(date +"%d-%m-%Y")
 mysqldump -uroot -p"$1" --all-databases > backup.sql
-tar -czvf "$DD-$MM-$YY.tar.gz" backup.sql
+tar czf "$date_up.tar.gz" backup.sql
