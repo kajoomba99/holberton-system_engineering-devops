@@ -14,17 +14,17 @@ def todoUserProgressToCSV(user_id: int) -> None:
 
     user_request = requests.get(endpoint_user)
     user_response = user_request.json()
-    EMPLOYEE_NAME = user_response.get("name")
+    username = user_response.get("name")
 
     task_request = requests.get(endpoint_tasks)
     task_response = task_request.json()
 
-    with open("{}.csv".format(user_id), mode="w") as csv_file:
+    with open("{}.csv".format(user_id), "w") as csv_file:
         writter = csv.writer(csv_file, quoting=csv.QUOTE_ALL)
         for task in task_response:
             writter.writerow([
                 user_id,
-                EMPLOYEE_NAME,
+                username,
                 task.get("completed"),
                 task.get("title")
             ])
