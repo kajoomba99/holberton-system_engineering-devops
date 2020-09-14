@@ -29,7 +29,7 @@ def main():
          f"with tasks({NUMBER_OF_DONE_TASKS}/{TOTAL_NUMBER_OF_TASKS}):")
     )
     for title in TASK_TITLE:
-        print(f"\t{title}")
+        print(f"\t {title}")
 
 
 if __name__ == "__main__":
