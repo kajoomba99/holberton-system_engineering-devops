@@ -1,21 +1,21 @@
 #!/usr/bin/python3
-"""module that returns information about his/her TODO list progress."""
+"""module 0-gather_data_from_an_API
+    with the function todoUserProgress"""
 import requests
 import sys
 
 
-def main():
-    """Entry point"""
-    user_id = sys.argv[1]
+def todoUserProgress(user_id: int) -> None:
+    """show information about user TODO list progress."""
     URL = "https://jsonplaceholder.typicode.com"
-    ENDPOINT_USER = "{}/users/{}".format(URL, user_id)
-    ENDPOINT_TASKS = "{}/todos?userId={}".format(URL, user_id)
+    endpoint_user = "{}/users/{}".format(URL, user_id)
+    endpoint_tasks = "{}/todos?userId={}".format(URL, user_id)
 
-    user_request = requests.get(ENDPOINT_USER)
+    user_request = requests.get(endpoint_user)
     user_response = user_request.json()
     EMPLOYEE_NAME = user_response.get("name")
 
-    task_request = requests.get(ENDPOINT_TASKS)
+    task_request = requests.get(endpoint_tasks)
     task_response = task_request.json()
 
     DONE_TASKS = [
@@ -37,4 +37,5 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    user_id = int(sys.argv[1])
+    todoUserProgress(user_id)
