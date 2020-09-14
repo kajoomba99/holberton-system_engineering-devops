@@ -20,7 +20,7 @@ def todoUserProgressToCSV(user_id: int) -> None:
     task_response = task_request.json()
 
     with open("{}.csv".format(user_id), mode="w") as csv_file:
-        writter = csv.writer(csv_file)
+        writter = csv.writer(csv_file, quoting=csv.QUOTE_ALL)
         for task in task_response:
             writter.writerow([
                 user_id,
