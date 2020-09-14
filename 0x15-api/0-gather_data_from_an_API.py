@@ -7,8 +7,8 @@ import sys
 def main():
     user_id = sys.argv[1]
     URL = "https://jsonplaceholder.typicode.com"
-    ENDPOINT_USER = f"{URL}/users/{user_id}"
-    ENDPOINT_TASKS = f"{URL}/todos?userId={user_id}"
+    ENDPOINT_USER = "{}/users/{}".format(URL, user_id)
+    ENDPOINT_TASKS = "{}/todos?userId={}".format(URL, user_id)
 
     user_request = requests.get(ENDPOINT_USER)
     user_response = user_request.json()
@@ -25,8 +25,11 @@ def main():
     TOTAL_NUMBER_OF_TASKS = len(task_response)
 
     print(
-        (f"Employee {EMPLOYEE_NAME} is done"
-         f"with tasks({NUMBER_OF_DONE_TASKS}/{TOTAL_NUMBER_OF_TASKS}):")
+        "Employee {} is done with tasks({}/{}):".format(
+            EMPLOYEE_NAME,
+            NUMBER_OF_DONE_TASKS,
+            TOTAL_NUMBER_OF_TASKS
+        )
     )
     for title in TASK_TITLE:
         print(f"\t {title}")
