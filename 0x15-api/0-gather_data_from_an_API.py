@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 """module that returns information about his/her TODO list progress."""
-from sys import argv
 import requests
+import sys
 
 
 def main():
-    user_id = argv[1]
+    user_id = sys.argv[1]
     URL = "https://jsonplaceholder.typicode.com"
     ENDPOINT_USER = f"{URL}/users/{user_id}"
     ENDPOINT_TASKS = f"{URL}/todos?userId={user_id}"
