@@ -33,7 +33,7 @@ def todoUserProgress(user_id: int) -> None:
         )
     )
     for title in TASK_TITLE:
-        print(f"\t {title}")
+        print("\t {}".format(title))
 
 
 if __name__ == "__main__":
