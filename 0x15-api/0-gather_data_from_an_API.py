@@ -5,6 +5,7 @@ import sys
 
 
 def main():
+    """Entry point"""
     user_id = sys.argv[1]
     URL = "https://jsonplaceholder.typicode.com"
     ENDPOINT_USER = "{}/users/{}".format(URL, user_id)
