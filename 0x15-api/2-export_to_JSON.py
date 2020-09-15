@@ -6,7 +6,7 @@ import requests
 import sys
 
 
-def todoUserProgressToJSON(user_id: int) -> None:
+def todoUserProgressToJSON(user_id):
     """export information about user TODO list progress in the CSV format."""
     URL = "https://jsonplaceholder.typicode.com"
     endpoint_user = "{}/users/{}".format(URL, user_id)
@@ -19,7 +19,8 @@ def todoUserProgressToJSON(user_id: int) -> None:
     task_request = requests.get(endpoint_tasks)
     task_response = task_request.json()
 
-    list_tasks = []
+    progress_dict = {}
+    progress_dict[user_id] = []
     for task in task_response:
 
         title = task.get("title")
@@ -31,14 +32,12 @@ def todoUserProgressToJSON(user_id: int) -> None:
             "username": username
         }
 
-        list_tasks.append(dict_task)
-
-    progress_dict = {"{}".format(user_id): list_tasks}
+        progress_dict[user_id].append(dict_task)
 
     with open("{}.json".format(user_id), "w") as json_file:
         json.dump(progress_dict, json_file)
 
 
 if __name__ == "__main__":
-    user_id = int(sys.argv[1])
+    user_id = sys.argv[1]
     todoUserProgressToJSON(user_id)
