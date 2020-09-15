@@ -21,19 +21,24 @@ def todoUserProgressToJSON(user_id: int) -> None:
 
     list_tasks = []
     for task in task_response:
+
         title = task.get("title")
         task_status = task.get("completed")
+
         dict_task = {
             "task": title,
             "completed": task_status,
             "username": username
         }
+
         list_tasks.append(dict_task)
+
     progress_dict = {"{}".format(user_id): list_tasks}
+
     with open("{}.json".format(user_id), "w") as json_file:
         json.dump(progress_dict, json_file)
 
 
 if __name__ == "__main__":
-    user_id = sys.argv[1]
+    user_id = int(sys.argv[1])
     todoUserProgressToJSON(user_id)
