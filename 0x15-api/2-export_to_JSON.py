@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """module 1-export_to_CSV
     with the function todoUserProgressToCSV"""
-import csv
 import json
 import requests
 import sys
